@@ -1,10 +1,7 @@
 #!/usr/bin/env python3
 
-
 """
-
 remote sync tool using Globus.org via globus-sdk written specifically to backup data from hiccup storage to NERSC ALICEPRO area.  
-
 
 Default source is a globus personal connect server owned by the user running this code
 Default destination is the NERSC ALICEPRO collaboration endpoint.  The user running this code must be authorized as a collab user of the alicepro NERSC account
@@ -14,7 +11,6 @@ code is a restructuring of code, liberally stolen from the NERSC globus-tool mod
 """
 
 from __future__ import print_function
-
 
 import sys
 if sys.version[0:3] < '3.0':
@@ -36,6 +32,8 @@ GLOBUS_PERSONAL_HICCUP='866ba278-880f-11eb-954f-752ba7b88ebe'
 GLOBUS_ALICEPRO_NERSC='8895475c-71b2-11eb-a9ad-efda19b7c028'
 TRANSFER_LABEL='sync_hiccup'
 
+#-------------------------------------------------
+  
 class remote_sync_client:
     """ application class"""
 
@@ -107,7 +105,7 @@ def main():
     try:
         args = p.parse_args()
     except:
-        #p.print_help()
+        p.print_help()
         p.exit(1)
 
     try:
@@ -118,8 +116,6 @@ def main():
         traceback.print_exc()
         return -1
 
-
 if __name__ == "__main__":
     sys.exit(main())
-
 
